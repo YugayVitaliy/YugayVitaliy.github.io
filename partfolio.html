@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио Виталий Югай / Vitaliy Yugay</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f5f5; color:#333; }
+    header { background:#1E40AF; color:white; text-align:center; padding:50px 20px; }
+    h1 { margin:0; font-size:36px; }
+    h2 { font-size:28px; margin-bottom:20px; text-align:center; }
+    h3 { font-size:22px; margin-bottom:10px; }
+    section { max-width:1000px; margin:40px auto; padding:0 20px; }
+    .skills, .projects { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:20px; }
+    .card { background:white; padding:20px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+    a { color:#1E40AF; text-decoration:none; }
+    footer { background:#1E40AF; color:white; text-align:center; padding:20px; margin-top:40px; }
+    img { max-width:100%; border-radius:8px; margin-top:10px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <h1>Виталий Югай / Vitaliy Yugay</h1>
+  <p>Data Scientist, ML & AI Engineer<br>Data Scientist, ML и AI инженер</p>
+</header>
+
+<!-- Skills -->
+<section>
+  <h2>Навыки / Skills</h2>
+  <div class="skills">
+    <div class="card"><h3>Python</h3><p>★★★★★</p></div>
+    <div class="card"><h3>Docker</h3><p>★★★★☆</p></div>
+    <div class="card"><h3>AWS</h3><p>★★★★☆</p></div>
+    <div class="card"><h3>SQL</h3><p>★★★★☆</p></div>
+    <div class="card"><h3>CV / OpenCV</h3><p>★★★☆☆</p></div>
+    <div class="card"><h3>n8n</h3><p>★★★☆☆</p></div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section>
+  <h2>Проекты / Projects</h2>
+  <div class="projects">
+    <div class="card">
+      <h3>CAT MLOps</h3>
+      <p>RU: Полный ML pipeline: сбор данных, подготовка, обучение модели, деплоймент. CI/CD, проверка качества модели.</p>
+      <p>EN: Full ML pipeline: data collection, preprocessing, model training, deployment. CI/CD, automated model quality testing.</p>
+      <img src="https://raw.githubusercontent.com/YugayVitaliy/cat_mlops/main/images/sample_pipeline.png" alt="CAT MLOps pipeline">
+      <a href="https://github.com/YugayVitaliy/cat_mlops" target="_blank">GitHub</a>
+    </div>
+    <div class="card">
+      <h3>AWS Deployment</h3>
+      <p>RU: Развёртывание ML моделей на AWS (EC2, Lambda, S3) с Docker.</p>
+      <p>EN: Deployment of ML models on AWS (EC2, Lambda, S3) using Docker.</p>
+      <img src="https://raw.githubusercontent.com/YugayVitaliy/AWS_deployment/main/images/aws_example.png" alt="AWS Deployment">
+      <a href="https://github.com/YugayVitaliy/AWS_deployment" target="_blank">GitHub</a>
+    </div>
+    <div class="card">
+      <h3>Differential Testing 4</h3>
+      <p>RU: Система для автоматического тестирования моделей и алгоритмов.</p>
+      <p>EN: System for automated testing of models and algorithms.</p>
+      <img src="https://raw.githubusercontent.com/YugayVitaliy/Differential_testing_4/main/images/diff_test.png" alt="Differential Testing">
+      <a href="https://github.com/YugayVitaliy/Differential_testing_4" target="_blank">GitHub</a>
+    </div>
+    <div class="card">
+      <h3>ML Deployments</h3>
+      <p>RU: Кейсы деплоймента ML моделей через FastAPI и Docker.</p>
+      <p>EN: ML deployment cases using FastAPI and Docker.</p>
+      <img src="https://raw.githubusercontent.com/YugayVitaliy/ML_deployments/main/images/deploy_example.png" alt="ML Deployments">
+      <a href="https://github.com/YugayVitaliy/ML_deployments" target="_blank">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- Examples of Work -->
+<section>
+  <h2>Примеры работ / Examples of Work</h2>
+  <div class="projects">
+    <div class="card">
+      <h3>Data Visualization / Визуализация данных</h3>
+      <img src="https://raw.githubusercontent.com/YugayVitaliy/cat_mlops/main/images/chart_example.png" alt="Data Visualization Example">
+      <p>RU/EN: Графики и дашборды с использованием Plotly, Seaborn / Data visualization using Plotly, Seaborn</p>
+    </div>
+    <div class="card">
+      <h3>Computer Vision / CV задачи</h3>
+      <img src="https://raw.githubusercontent.com/YugayVitaliy/cat_mlops/main/images/cv_example.png" alt="Computer Vision Example">
+      <p>RU/EN: Обработка изображений, обнаружение объектов / Image processing, object detection</p>
+    </div>
+    <div class="card">
+      <h3>ML Deployment / Деплой моделей</h3>
+      <img src="https://raw.githubusercontent.com/YugayVitaliy/ML_deployments/main/images/deploy_example2.png" alt="ML Deployment Example">
+      <p>RU/EN: Деплой моделей через FastAPI и Docker / Model deployment with FastAPI and Docker</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section>
+  <h2>Контакты / Contacts</h2>
+  <p>Email: <a href="mailto:vamp.09.94@gmail.com">Gmail</a></p>
+  <p>GitHub: <a href="https://github.com/YugayVitaliy">https://github.com/YugayVitaliy</a></p>
+  <p>LinkedIn / Telegram / Portfolio Website</p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Виталий Югай / Vitaliy Yugay</p>
+</footer>
+
+</body>
+</html>

@@ -1,114 +1,896 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Портфолио Виталий Югай / Vitaliy Yugay</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f5f5; color:#333; }
-    header { background:#1E40AF; color:white; text-align:center; padding:50px 20px; }
-    h1 { margin:0; font-size:36px; }
-    h2 { font-size:28px; margin-bottom:20px; text-align:center; }
-    h3 { font-size:22px; margin-bottom:10px; }
-    section { max-width:1000px; margin:40px auto; padding:0 20px; }
-    .skills, .projects { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:20px; }
-    .card { background:white; padding:20px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
-    a { color:#1E40AF; text-decoration:none; }
-    footer { background:#1E40AF; color:white; text-align:center; padding:20px; margin-top:40px; }
-    img { max-width:100%; border-radius:8px; margin-top:10px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitaliy Yugay - Data Science & AI Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #1a2530);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #3498db, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-content .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .header-content .description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: var(--secondary-color);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .project-header i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .project-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .tech-tag {
+            background-color: #e1f0fa;
+            color: var(--secondary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--secondary-color);
+        }
+
+        .timeline-item {
+            background: var(--card-bg);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            position: relative;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -50px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -50px;
+        }
+
+        .timeline-date {
+            background: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .certification-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certification-card i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Languages Section */
+        .languages-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            text-align: center;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            min-width: 150px;
+        }
+
+        .language-item i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details li i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            width: 20px;
+        }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: calc(100% - 50px);
+                margin-left: 50px !important;
+                margin-right: 0 !important;
+            }
+            
+            .timeline-item::before {
+                left: -40px !important;
+                right: auto !important;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Vitaliy Yugay</h1>
+                <div class="subtitle">Data Science & AI Engineer</div>
+                <div class="description">Specializing in Computer Vision, Machine Learning, and Time Series Analysis</div>
+                <div class="social-links">
+                    <a href="https://github.com/YugayVitaliy" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:yugay.vitaliy@example.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<!-- Header -->
-<header>
-  <h1>Виталий Югай / Vitaliy Yugay</h1>
-  <p>Data Scientist, ML & AI Engineer<br>Data Scientist, ML и AI инженер</p>
-</header>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#languages">Languages</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<!-- Skills -->
-<section>
-  <h2>Навыки / Skills</h2>
-  <div class="skills">
-    <div class="card"><h3>Python</h3><p>★★★★★</p></div>
-    <div class="card"><h3>Docker</h3><p>★★★★☆</p></div>
-    <div class="card"><h3>AWS</h3><p>★★★★☆</p></div>
-    <div class="card"><h3>SQL</h3><p>★★★★☆</p></div>
-    <div class="card"><h3>CV / OpenCV</h3><p>★★★☆☆</p></div>
-    <div class="card"><h3>n8n</h3><p>★★★☆☆</p></div>
-  </div>
-</section>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a passionate Data Science and AI Engineer with expertise in developing end-to-end machine learning solutions. My work focuses on creating practical applications that solve real-world problems using cutting-edge technologies.</p>
+                    <p>With a strong foundation in computer vision, time series analysis, and deep learning, I enjoy transforming complex data into actionable insights and intelligent systems.</p>
+                    <p>I am constantly learning and exploring new techniques in artificial intelligence to stay at the forefront of this rapidly evolving field.</p>
+                </div>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Data Science & AI</h3>
+                        <ul class="skill-list">
+                            <li><i class="fas fa-brain"></i> Machine Learning</li>
+                            <li><i class="fas fa-eye"></i> Computer Vision</li>
+                            <li><i class="fas fa-chart-line"></i> Time Series Analysis</li>
+                            <li><i class="fas fa-network-wired"></i> Deep Learning</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Technologies</h3>
+                        <ul class="skill-list">
+                            <li><i class="fab fa-python"></i> Python</li>
+                            <li><i class="fas fa-database"></i> SQL</li>
+                            <li><i class="fas fa-cloud"></i> Google Cloud</li>
+                            <li><i class="fas fa-code"></i> TensorFlow/PyTorch</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Projects -->
-<section>
-  <h2>Проекты / Projects</h2>
-  <div class="projects">
-    <div class="card">
-      <h3>CAT MLOps</h3>
-      <p>RU: Полный ML pipeline: сбор данных, подготовка, обучение модели, деплоймент. CI/CD, проверка качества модели.</p>
-      <p>EN: Full ML pipeline: data collection, preprocessing, model training, deployment. CI/CD, automated model quality testing.</p>
-      <img src="https://raw.githubusercontent.com/YugayVitaliy/cat_mlops/main/images/sample_pipeline.png" alt="CAT MLOps pipeline">
-      <a href="https://github.com/YugayVitaliy/cat_mlops" target="_blank">GitHub</a>
-    </div>
-    <div class="card">
-      <h3>AWS Deployment</h3>
-      <p>RU: Развёртывание ML моделей на AWS (EC2, Lambda, S3) с Docker.</p>
-      <p>EN: Deployment of ML models on AWS (EC2, Lambda, S3) using Docker.</p>
-      <img src="https://raw.githubusercontent.com/YugayVitaliy/AWS_deployment/main/images/aws_example.png" alt="AWS Deployment">
-      <a href="https://github.com/YugayVitaliy/AWS_deployment" target="_blank">GitHub</a>
-    </div>
-    <div class="card">
-      <h3>Differential Testing 4</h3>
-      <p>RU: Система для автоматического тестирования моделей и алгоритмов.</p>
-      <p>EN: System for automated testing of models and algorithms.</p>
-      <img src="https://raw.githubusercontent.com/YugayVitaliy/Differential_testing_4/main/images/diff_test.png" alt="Differential Testing">
-      <a href="https://github.com/YugayVitaliy/Differential_testing_4" target="_blank">GitHub</a>
-    </div>
-    <div class="card">
-      <h3>ML Deployments</h3>
-      <p>RU: Кейсы деплоймента ML моделей через FastAPI и Docker.</p>
-      <p>EN: ML deployment cases using FastAPI and Docker.</p>
-      <img src="https://raw.githubusercontent.com/YugayVitaliy/ML_deployments/main/images/deploy_example.png" alt="ML Deployments">
-      <a href="https://github.com/YugayVitaliy/ML_deployments" target="_blank">GitHub</a>
-    </div>
-  </div>
-</section>
+    <!-- Projects Section -->
+    <section id="projects" style="background-color: #f0f5fa;">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <!-- YOLO Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-eye"></i>
+                        <h3>YOLO Object Detection</h3>
+                    </div>
+                    <div class="project-content">
+                        <p>Real-time object detection system using YOLO architecture with OpenCV integration for various applications including production defect detection.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">YOLO</span>
+                            <span class="tech-tag">Computer Vision</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/YugayVitaliy?tab=repositories" class="btn btn-primary">View on GitHub</a>
+                            <a href="#" class="btn btn-secondary">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Examples of Work -->
-<section>
-  <h2>Примеры работ / Examples of Work</h2>
-  <div class="projects">
-    <div class="card">
-      <h3>Data Visualization / Визуализация данных</h3>
-      <img src="https://raw.githubusercontent.com/YugayVitaliy/cat_mlops/main/images/chart_example.png" alt="Data Visualization Example">
-      <p>RU/EN: Графики и дашборды с использованием Plotly, Seaborn / Data visualization using Plotly, Seaborn</p>
-    </div>
-    <div class="card">
-      <h3>Computer Vision / CV задачи</h3>
-      <img src="https://raw.githubusercontent.com/YugayVitaliy/cat_mlops/main/images/cv_example.png" alt="Computer Vision Example">
-      <p>RU/EN: Обработка изображений, обнаружение объектов / Image processing, object detection</p>
-    </div>
-    <div class="card">
-      <h3>ML Deployment / Деплой моделей</h3>
-      <img src="https://raw.githubusercontent.com/YugayVitaliy/ML_deployments/main/images/deploy_example2.png" alt="ML Deployment Example">
-      <p>RU/EN: Деплой моделей через FastAPI и Docker / Model deployment with FastAPI and Docker</p>
-    </div>
-  </div>
-</section>
+                <!-- Time Series Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Time Series Forecasting</h3>
+                    </div>
+                    <div class="project-content">
+                        <p>Advanced time series analysis and forecasting using ensemble methods, LSTM networks, and statistical models for retail demand prediction.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Sktime</span>
+                            <span class="tech-tag">LSTM</span>
+                            <span class="tech-tag">Prophet</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/YugayVitaliy?tab=repositories" class="btn btn-primary">View on GitHub</a>
+                            <a href="#" class="btn btn-secondary">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Contact -->
-<section>
-  <h2>Контакты / Contacts</h2>
-  <p>Email: <a href="mailto:vamp.09.94@gmail.com">Gmail</a></p>
-  <p>GitHub: <a href="https://github.com/YugayVitaliy">https://github.com/YugayVitaliy</a></p>
-  <p>LinkedIn / Telegram / Portfolio Website</p>
-</section>
+                <!-- Generative AI Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-robot"></i>
+                        <h3>Generative AI Models</h3>
+                    </div>
+                    <div class="project-content">
+                        <p>Exploring generative neural networks including GANs and VAEs for creative applications and data augmentation techniques.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">GANs</span>
+                            <span class="tech-tag">VAE</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/YugayVitaliy?tab=repositories" class="btn btn-primary">View on GitHub</a>
+                            <a href="#" class="btn btn-secondary">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Footer -->
-<footer>
-  <p>© 2025 Виталий Югай / Vitaliy Yugay</p>
-</footer>
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - Present</div>
+                    <h3>Data Science Engineer</h3>
+                    <p>Developing and deploying machine learning models for computer vision and time series analysis. Leading projects from research to production implementation.</p>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Computer Vision Systems</li>
+                        <li><i class="fas fa-check"></i> Time Series Forecasting</li>
+                        <li><i class="fas fa-check"></i> Model Deployment</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - 2023</div>
+                    <h3>ML Researcher</h3>
+                    <p>Conducted research in deep learning architectures and published papers on neural network optimization techniques. Focused on computer vision applications.</p>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Deep Learning Research</li>
+                        <li><i class="fas fa-check"></i> Algorithm Development</li>
+                        <li><i class="fas fa-check"></i> Academic Publishing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Skills Section -->
+    <section id="skills" style="background-color: #f0f5fa;">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check-circle"></i> Python (Advanced)</li>
+                        <li><i class="fas fa-check-circle"></i> SQL</li>
+                        <li><i class="fas fa-check-circle"></i> C#</li>
+                        <li><i class="fas fa-check-circle"></i> JavaScript</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>ML & Data Science</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check-circle"></i> TensorFlow & Keras</li>
+                        <li><i class="fas fa-check-circle"></i> PyTorch</li>
+                        <li><i class="fas fa-check-circle"></i> Scikit-learn</li>
+                        <li><i class="fas fa-check-circle"></i> Pandas & NumPy</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Computer Vision</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check-circle"></i> OpenCV</li>
+                        <li><i class="fas fa-check-circle"></i> YOLO</li>
+                        <li><i class="fas fa-check-circle"></i> Image Processing</li>
+                        <li><i class="fas fa-check-circle"></i> CNN Architectures</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check-circle"></i> Google Cloud Platform</li>
+                        <li><i class="fas fa-check-circle"></i> Docker</li>
+                        <li><i class="fas fa-check-circle"></i> Git</li>
+                        <li><i class="fas fa-check-circle"></i> n8n</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <i class="fab fa-google"></i>
+                    <h3>Google Cloud - ML Engineer</h3>
+                    <p>Machine Learning Engineer Certification</p>
+                </div>
+                <div class="certification-card">
+                    <i class="fab fa-python"></i>
+                    <h3>TensorFlow Developer</h3>
+                    <p>Professional TensorFlow Certification</p>
+                </div>
+                <div class="certification-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Data Science Advanced</h3>
+                    <p>Advanced Data Science Certification</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section id="languages" style="background-color: #f0f5fa;">
+        <div class="container">
+            <h2 class="section-title">Languages</h2>
+            <div class="languages-container">
+                <div class="language-item">
+                    <i class="fas fa-language"></i>
+                    <h3>Russian</h3>
+                    <p>Native</p>
+                </div>
+                <div class="language-item">
+                    <i class="fas fa-language"></i>
+                    <h3>English</h3>
+                    <p>Intermediate+</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>yugay.vitaliy@example.com</span>
+                        </li>
+                        <li>
+                            <i class="fab fa-github"></i>
+                            <span>github.com/YugayVitaliy</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Data Science & AI Engineer</span>
+                        </li>
+                    </ul>
+                    <p>I'm always open to discussing new opportunities, collaborations, and interesting projects in the field of AI and Data Science.</p>
+                    <div class="personal-qualities">
+                        <h4>Personal Qualities:</h4>
+                        <p>Analytical Thinking • Result-Oriented • Fast Learning • Team Collaboration</p>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Vitaliy Yugay. All rights reserved.</p>
+                <p>Data Science & AI Engineer</p>
+                <div class="social-links">
+                    <a href="https://github.com/YugayVitaliy" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.skill-category, .project-card, .timeline-item, .certification-card, .language-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
-
